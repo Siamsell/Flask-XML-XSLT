@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Artistes Algériens</title>
+        <link rel="stylesheet" href="/static/style.css">
+    </head>
+    <body>
+        <main class="container">
+            <h1>Recherche d'artistes algériens</h1>
+            
+            <form method="POST" class="search-form">
+                <input type="text" name="artist_name" placeholder="Nom de l'artiste" required>
+                <button type="submit">Rechercher</button>
+            </form>
+            
+            {% if artist %}
+            <section class="artist-profile">
+                <h2>{{ artist.find('name').text }}</h2>
+                <div class="artist-meta">
+                    <p><strong>Ville :</strong> {{ artist.find('city').text }}</p>
+                    {% with website=artist.find('website').text %}
+                    {% if website %}
+                    <p><strong>Site web :</strong> 
+                        <a href="#" class="external-link" data-url="{{ website }}">Visiter le site</a>
+                    </p>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                
+                {% set albums = artist.findall('albums/album') %}
+                {% if albums %}
+                <h3>Albums :</h3>
+                <div class="album-container">
+                    {% for album in albums %}
+                    <div class="album-card">
+                        <div class="album-info">
+                            <div class="album-title">{{ album.find('title').text }}</div>
+                            <div class="album-genre">{{ album.find('genre').text }}</div>
+                        </div>
+                        <div class="track-info">Chanson : {{ album.find('tracklist').text }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </section>
+            {% endif %}
+            
+            <div class="xslt-output">
+                {{ html_content|safe }}
+            </div>
+            
+            <script>
+            document.querySelectorAll('.external-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.open(this.dataset.url, '_blank', 'noopener,noreferrer');
+                });
+            });
+        </script>
+        </main>
+    </body>
+</html>

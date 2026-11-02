@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ArtistAlgerian.xsl"?>
+<artists>
+    <artist>
+        <name>FIRGANI mohamed Taher</name>
+        <city>Constantine</city>
+        <website>http://www.Mohamedfergani.dz</website>
+        <albums>
+            <album>
+                <title>MALOUF constantinois</title>
+                <genre>Chanson</genre>
+                <tracklist>Yanadim Layali sourour</tracklist>
+            </album>
+        </albums>
+    </artist>
+    
+    <artist>
+        <name>ALHACHEMI GUARWABI</name>
+        <city>Alger</city>
+        <website>http://www.AlhachemiGUATWABI.dz</website>
+        <albums>
+            <album>
+                <title>Religion</title>
+                <genre>Chanson</genre>
+                <tracklist>Adam wa hawa Youcef</tracklist>
+            </album>
+        </albums>
+    </artist>
+</artists>
