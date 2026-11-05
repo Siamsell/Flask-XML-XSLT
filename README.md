@@ -213,4 +213,3 @@ Projet académique — Libre d'utilisation à des fins **éducatives**.
 
 
 
-Bon push sur GitHub ! 🚀
